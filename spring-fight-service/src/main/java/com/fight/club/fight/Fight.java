@@ -20,6 +20,10 @@ public class Fight extends BaseEntity {
 	private LocalDate date;
 
 	@NotEmpty
+	@Column(name = "arena_id")
+	private Integer arenaId;
+
+	@NotEmpty
 	@Column(name = "fighterA_id")
 	private Integer fighterAId;
 
@@ -39,6 +43,13 @@ public class Fight extends BaseEntity {
 
 	public void setDate(LocalDate date) {
 		this.date = date;
+	}
+	public Integer getArenaId() {
+		return this.arenaId;
+	}
+
+	public void setArenaId(Integer arenaId) {
+		this.arenaId = arenaId;
 	}
 
 	public Integer getFightAId() {

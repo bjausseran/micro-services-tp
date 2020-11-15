@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface FightRepository extends CrudRepository<Fight, Integer> {
 
-	List<Fight> findByFighterId(Integer petId);
+	List<Fight> findByFighterId(Integer fighterId);
 
 
 }

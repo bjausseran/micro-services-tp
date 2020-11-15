@@ -30,12 +30,13 @@ public class FightController {
 	@PostMapping("/fights")
 	public Fight addFight(
 			@RequestParam("date") LocalDate date, 
-			@RequestParam("description") String description,
+			@RequestParam("arenaId") Integer arenaId,
 			@RequestParam("fighterAId") Integer fighterAId, 
 			@RequestParam("fighterBId") Integer fighterBId) 
 	{
 		Fight fight = new Fight();
 		fight.setDate(date);
+		fight.setArenaId(arenaId);
 		fight.setFighterAId(fighterAId);
 		fight.setFighterBId(fighterBId);
 		return fights.save(fight);
@@ -46,7 +47,7 @@ public class FightController {
 		fights.deleteById(id);
 	}
 	
-	@GetMapping("/fights/findByFighterId/{petId}")
+	@GetMapping("/fights/findByFighterId/{fighterId}")
 	public Iterable<Fight> findByFighterId(@PathVariable("fighterId") Integer fighterId) {
 		return fights.findByFighterId(fighterId);
 	}
