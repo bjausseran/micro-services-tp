@@ -1,0 +1,28 @@
+<html xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
+
+<body>
+
+  <h2>Owner</h2>
+  <form th:object="${fight}" class="form-horizontal" id="add-owner-form" method="post">
+    <div class="form-group has-feedback">
+      <input
+        th:replace="~{fragments/inputField :: input ('Date', 'fight_date', 'date')}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('Fighter A ID', 'fighter_A_id', 'int')}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('Fighter A ID', 'fighter_A_id', 'int')}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('Arena ID', 'arena_id', 'int')}" />
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button
+          th:with="text=${owner['new']} ? 'Add Fight' : 'Update Fight'"
+          class="btn btn-default" type="submit" th:text="${text}">Add
+          Fight</button>
+      </div>
+    </div>
+  </form>
+</body>
+</html>
